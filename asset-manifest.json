@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-material-ui-SHOP/static/css/main.7acaea2f.css",
+    "main.js": "/react-material-ui-SHOP/static/js/main.bc46ddd9.js",
+    "index.html": "/react-material-ui-SHOP/index.html",
+    "main.7acaea2f.css.map": "/react-material-ui-SHOP/static/css/main.7acaea2f.css.map",
+    "main.bc46ddd9.js.map": "/react-material-ui-SHOP/static/js/main.bc46ddd9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7acaea2f.css",
+    "static/js/main.bc46ddd9.js"
+  ]
+}
