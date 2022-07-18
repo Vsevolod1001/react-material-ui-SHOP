@@ -3,6 +3,8 @@ import { Search } from './Search';
 import { ShowcaseList } from './ShowcaseList';
 import { goods } from '../components/data/goods';
 import { BasketList } from './BasketList';
+import { Header } from './Header';
+import { Container } from '@mui/material';
 
 export const App = () => {
   const [search, setSearch] = useState('');
@@ -58,9 +60,12 @@ export const App = () => {
   };
   return (
     <div>
-      <Search value={search} hendleChange={hendleChange} />
-      <ShowcaseList products={products} addProduct={addProduct} />
-      <BasketList basket={basket} removeProduct={removeProduct} />
+      <Header />
+      <Container sx={{ mt: '1rem' }}>
+        <Search value={search} hendleChange={hendleChange} />
+        <ShowcaseList products={products} addProduct={addProduct} />
+        <BasketList basket={basket} removeProduct={removeProduct} />
+      </Container>
     </div>
   );
 };
