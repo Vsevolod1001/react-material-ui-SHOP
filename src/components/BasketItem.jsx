@@ -1,8 +1,15 @@
+import { Close } from '@mui/icons-material';
+import { ListItem, IconButton, Typography } from '@mui/material';
 export const BasketItem = ({ name, price, quantity, id, removeProduct }) => {
   return (
-    <li>
-      {name}, {price}$ x{quantity}
-      <button onClick={() => removeProduct(id)}>удалить</button>
-    </li>
+    <ListItem>
+      <Typography variant="body1">
+        {name}, {price}$ x{quantity}
+      </Typography>
+
+      <IconButton onClick={() => removeProduct(id)}>
+        <Close />
+      </IconButton>
+    </ListItem>
   );
 };

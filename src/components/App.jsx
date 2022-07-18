@@ -2,14 +2,17 @@ import { useState } from 'react';
 import { Search } from './Search';
 import { ShowcaseList } from './ShowcaseList';
 import { goods } from '../components/data/goods';
-import { BasketList } from './BasketList';
 import { Header } from './Header';
 import { Container } from '@mui/material';
+import { Basket } from './Basket';
+import { Snack } from './Snack';
 
 export const App = () => {
   const [search, setSearch] = useState('');
   const [products, setProducts] = useState(goods);
   const [basket, setBasket] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isSnackOpen, setIsSnackOpen] = useState(false);
 
   const hendleChange = e => {
     if (!e.target.value) {
@@ -54,18 +57,28 @@ export const App = () => {
         },
       ]);
     }
+    setIsSnackOpen(true);
   };
   const removeProduct = id => {
     setBasket(basket.filter(item => item.id !== id));
   };
   return (
-    <div>
-      <Header />
+    <>
+      <Header
+        handleCart={() => setIsCartOpen(true)}
+        basketLen={basket.length}
+      />
       <Container sx={{ mt: '1rem' }}>
         <Search value={search} hendleChange={hendleChange} />
         <ShowcaseList products={products} addProduct={addProduct} />
-        <BasketList basket={basket} removeProduct={removeProduct} />
       </Container>
-    </div>
+      <Basket
+        removeProduct={removeProduct}
+        basket={basket}
+        cartOpen={isCartOpen}
+        closeCart={() => setIsCartOpen(false)}
+      />
+      <Snack isOpen={isSnackOpen} hendleClose={() => setIsSnackOpen(false)} />
+    </>
   );
 };

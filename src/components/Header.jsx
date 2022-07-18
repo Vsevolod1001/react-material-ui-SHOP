@@ -1,10 +1,7 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+import { Toolbar, Typography, IconButton, AppBar, Badge } from '@mui/material';
 import { ShoppingBasket } from '@mui/icons-material';
-export const Header = () => {
+export const Header = ({ handleCart, basketLen }) => {
   return (
     <AppBar position="static">
       <Toolbar>
@@ -17,8 +14,11 @@ export const Header = () => {
           color="inherit"
           aria-label="menu"
           sx={{ mr: 2 }}
+          onClick={handleCart}
         >
-          <ShoppingBasket />
+          <Badge color="secondary" badgeContent={basketLen}>
+            <ShoppingBasket />
+          </Badge>
         </IconButton>
       </Toolbar>
     </AppBar>
